@@ -1,16 +1,22 @@
-Source from https://www.callicoder.com/spring-boot-actuator-metrics-monitoring-dashboard-prometheus-grafana/
-
 # Development
 
 **Shell**
 ```bash
 docker pull prom/prometheus
 touch prometheus.yml
-vim prometheus.yml
+
 # setup prometheus.yml... see prometheus-conf.md
+vim prometheus.yml
+
+# named
 docker run -d --name=dev-prom -p 9090:9090 \
-    -v prometheus.yml:/etc/prometheus \
-    prom/prometheus --config.file=/etc/prometheus/prometheus.yml
+    -v $(pwd)/prometheus.yml:/etc/prometheus \
+    prom/prometheus
+    
+docker run --rm -p 9090:9090 \
+    -v $(pwd)/prometheus.yml:/etc/prometheus \
+    prom/prometheus
+
 docker ps -a
 ```
 
@@ -42,3 +48,8 @@ scrape_configs:
     static_configs:
     - targets: ['127.0.0.1:8080']
 ```
+
+# Resources
+
+- https://www.callicoder.com/spring-boot-actuator-metrics-monitoring-dashboard-prometheus-grafana/
+- https://prometheus.io/docs/prometheus/latest/installation/#using-docker
