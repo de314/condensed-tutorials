@@ -2,10 +2,8 @@
 
 **Shell**
 ```bash
-docker pull prom/prometheus
-touch prometheus.yml
-
-vim prometheus.yml
+wget https://raw.githubusercontent.com/de314/condensed-tutorials/master/infrastructure/prometheus.yml
+# vim prometheus.yml
 
 # named
 docker run -d --name=dev-prom -p 9090:9090 \
