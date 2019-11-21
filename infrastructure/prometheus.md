@@ -43,10 +43,11 @@ scrape_configs:
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['HOST_IP:8080']
+    - targets: ['host.docker.internal:8080']
 ```
 
 # Resources
 
 - https://www.callicoder.com/spring-boot-actuator-metrics-monitoring-dashboard-prometheus-grafana/
 - https://prometheus.io/docs/prometheus/latest/installation/#using-docker
+- [Docker Host IP on Mac](https://stackoverflow.com/a/43541732)
