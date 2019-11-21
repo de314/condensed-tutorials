@@ -11,3 +11,6 @@ implementation 'io.micrometer:micrometer-registry-prometheus'
 management:
   endpoints.web.exposure.include: health,info,metrics,prometheus
 ```
+
+# Resources
+- https://www.callicoder.com/spring-boot-actuator-metrics-monitoring-dashboard-prometheus-grafana/
