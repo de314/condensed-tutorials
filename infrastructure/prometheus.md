@@ -1,8 +1,9 @@
 # Development
 
 **Shell**
+
 ```bash
-wget https://raw.githubusercontent.com/de314/condensed-tutorials/master/infrastructure/prometheus.yml
+wget https://raw.githubusercontent.com/de314/condensed-tutorials/master/infrastructure/conf/prometheus.yml
 # vim prometheus.yml
 
 # named
@@ -18,10 +19,11 @@ docker ps -a
 ```
 
 **prometheus.yml**
+
 ```yml
 # my global config
 global:
-  scrape_interval:     15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  scrape_interval: 15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
   evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
   # scrape_timeout is set to the global default (10s).
 
@@ -38,12 +40,12 @@ scrape_configs:
     # metrics_path defaults to '/metrics'
     # scheme defaults to 'http'.
     static_configs:
-    - targets: ['127.0.0.1:9090']
+      - targets: ['127.0.0.1:9090']
   - job_name: 'spring-actuator'
     metrics_path: '/actuator/prometheus'
     scrape_interval: 5s
     static_configs:
-    - targets: ['host.docker.internal:8080']
+      - targets: ['host.docker.internal:8080']
 ```
 
 # Resources

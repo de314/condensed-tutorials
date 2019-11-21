@@ -1,6 +1,9 @@
 # Development
 
 ```bash
+wget https://raw.githubusercontent.com/de314/condensed-tutorials/master/infrastructure/conf/prom-datasource.yml
+# vim prom-datasource.yml
+
 # named
 docker run -d --name=grafana -p 3000:3000 grafana/grafana
 # ephemeral
