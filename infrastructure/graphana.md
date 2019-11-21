@@ -3,7 +3,7 @@
 provisioning/datasources
 
 ```bash
-# provisioning/dashboards
+# provisioning/datasources
 wget https://raw.githubusercontent.com/de314/condensed-tutorials/master/infrastructure/conf/prom-datasource.yml
 # vim prom-datasource.yml
 
