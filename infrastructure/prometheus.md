@@ -5,7 +5,6 @@
 docker pull prom/prometheus
 touch prometheus.yml
 
-# setup prometheus.yml... see prometheus-conf.md
 vim prometheus.yml
 
 # named
