@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 2,
+  "id": 1,
   "links": [],
   "panels": [
     {
@@ -402,7 +402,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(http_server_requests_seconds_count{job=\"api-camp-data-server\"}) by (status, uri)",
+          "expr": "sum(irate(http_server_requests_seconds_count{job=\"api-camp-data-server\"}[1m])) by (status, uri)",
           "legendFormat": "[{{status}}] {{uri}}",
           "refId": "A"
         }
@@ -411,7 +411,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "URI Status Counts",
+      "title": "URI Status Rates",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -621,7 +621,7 @@
       }
     }
   ],
-  "refresh": "5s",
+  "refresh": false,
   "schemaVersion": 20,
   "style": "dark",
   "tags": [],
@@ -629,8 +629,8 @@
     "list": []
   },
   "time": {
-    "from": "now-30m",
-    "to": "now"
+    "from": "2019-11-21T15:09:00.000Z",
+    "to": "2019-11-21T15:17:00.000Z"
   },
   "timepicker": {
     "refresh_intervals": [
@@ -649,5 +649,5 @@
   "timezone": "",
   "title": "API.Camp::Load Test Dashboard",
   "uid": "xlF1sNxZk",
-  "version": 7
+  "version": 3
 }
