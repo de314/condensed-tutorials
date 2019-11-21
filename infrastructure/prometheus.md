@@ -7,11 +7,11 @@ wget https://raw.githubusercontent.com/de314/condensed-tutorials/master/infrastr
 
 # named
 docker run -d --name=dev-prom -p 9090:9090 \
-    -v $(pwd)/prometheus.yml:/etc/prometheus \
+    -v $(pwd)/prometheus.yml:/etc/prometheus/prometheus.yml \
     prom/prometheus
-    
+# ephemeral
 docker run --rm -p 9090:9090 \
-    -v $(pwd)/prometheus.yml:/etc/prometheus \
+    -v $(pwd)/prometheus.yml:/etc/prometheus/prometheus.yml \
     prom/prometheus
 
 docker ps -a
