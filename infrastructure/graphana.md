@@ -1,13 +1,23 @@
 # Development
 
+provisioning/datasources
+
 ```bash
+# provisioning/dashboards
 wget https://raw.githubusercontent.com/de314/condensed-tutorials/master/infrastructure/conf/prom-datasource.yml
 # vim prom-datasource.yml
 
+# provisioning/dashboards
+# TODO: https://grafana.com/docs/administration/provisioning/#dashboards
+
 # named
-docker run -d --name=grafana -p 3000:3000 grafana/grafana
+docker run -d --name=grafana  \
+    -v $(pwd)/prom-datasource.yml:/etc/grafana/provisioning/datasources/prom-datasource.yml \
+    -p 3000:3000 grafana/grafana
 # ephemeral
-docker run -d --rm -p 3000:3000 grafana/grafana
+docker run --rm \
+    -v $(pwd)/prom-datasource.yml:/etc/grafana/provisioning/datasources/prom-datasource.yml \
+    -p 3000:3000 grafana/grafana
 ```
 
 **Chrome**
