@@ -45,6 +45,7 @@ public class ExecutionPlan {
 
     @Setup(Level.Trial)
     public void setup() {
+        // you have access to `this.numberOfIterations`
         target = MyObject.create();
     }
 }
